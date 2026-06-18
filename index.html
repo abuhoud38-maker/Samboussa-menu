@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samboussa Express WF | Somali Samboussa & Moroccan Bastila Wolfenbüttel</title>
+
+<meta name="description" content="Authentic Somali Samboussa and Traditional Moroccan Bastila delivered in Wolfenbüttel. Free delivery 20+. Order on WhatsApp.">
+<meta name="keywords" content="samboussa wolfenbüttel, somali food wolfenbüttel, moroccan bastila delivery, halal food wolfenbüttel">
+
+<style>
+:root{
+--primary:#c62828;
+--secondary:#f57c00;
+--dark:#4e342e;
+--light:#fff8e7;
+--white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Arial, sans-serif;background:var(--light);color:#333;line-height:1.6;}
+
+nav{background:var(--dark);position:sticky;top:0;z-index:999;}
+nav ul{display:flex;justify-content:center;flex-wrap:wrap;list-style:none;}
+nav li{padding:15px;}
+nav a{color:white;text-decoration:none;font-weight:bold;}
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('welcome-2.jpg');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;text-align:center;padding:100px 20px;
+}
+.hero h1{font-size:3rem;margin-bottom:15px;}
+.hero p{font-size:1.2rem;margin-bottom:10px;}
+.btn{display:inline-block;margin-top:20px;padding:15px 30px;background:white;color:var(--primary);text-decoration:none;font-weight:bold;border-radius:30px;}
+.trust{margin-top:15px;font-size:0.9rem;}
+
+section{padding:70px 20px;max-width:1200px;margin:auto;}
+.section-title{text-align:center;font-size:2.2rem;color:var(--primary);margin-bottom:40px;}
+.highlight{background:#fff3cd;padding:25px;border-left:6px solid var(--secondary);border-radius:10px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card{background:white;padding:25px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:.3s;}
+.card:hover{transform:translateY(-5px);}
+.card img{width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:15px;}
+.card h3{color:var(--primary);margin-bottom:10px;}
+
+table{width:100%;border-collapse:collapse;background:white;}
+th{background:var(--primary);color:white;padding:12px;}
+td{padding:12px;border:1px solid #ddd;text-align:center;}
+
+.review{background:white;padding:20px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+
+form{display:grid;gap:15px;max-width:700px;margin:auto;}
+input,select,textarea{padding:14px;border:1px solid #ccc;border-radius:8px;}
+button{background:var(--primary);color:white;border:none;padding:15px;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:bold;}
+button:hover{opacity:.9;}
+#summary{background:#f5f5f5;padding:15px;border-radius:10px;}
+
+iframe{width:100%;height:400px;border:none;border-radius:12px;}
+.whatsapp{display:inline-block;background:#25D366;color:white;padding:15px 25px;text-decoration:none;border-radius:10px;font-weight:bold;margin-top:15px;}
+
+footer{background:var(--dark);color:white;text-align:center;padding:40px;margin-top:50px;}
+
+@media(max-width:768px){
+.hero h1{font-size:2rem;}
+.section-title{font-size:1.8rem;}
+}
+</style>
+
+<script>
+function calculateOrder(){
+let qty = parseInt(document.getElementById("qty").value) || 0;
+let price = qty >= 10 ? 2.00 : 2.50;
+let subtotal = qty * price;
+let delivery = 0;
+if(subtotal >= 18){
+delivery = qty >= 20 ? 0 : 2;
+}
+let total = subtotal + delivery;
+document.getElementById("summary").innerHTML =
+`<h3>Order Summary</h3>
+<p>Quantity: ${qty}</p>
+<p>Price per Samboussa: €${price.toFixed(2)}</p>
+<p>Food Total: €${subtotal.toFixed(2)}</p>
+<p>Delivery: €${delivery.toFixed(2)}</p>
+<hr>
+<h3>Total: €${total.toFixed(2)}</h3>`;
+}
+
+function sendWhatsApp(){
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let address = document.getElementById("address").value;
+let item = document.getElementById("item").value;
+let qty = document.getElementById("qty").value;
+let notes = document.getElementById("notes").value;
+let payment = document.getElementById("payment").value;
+let total = document.getElementById("summary").innerText;
+
+if(!name || !phone || !address || qty < 1){
+alert("Please fill Name, Phone, Address and Quantity");
+return;
+}
+
+let msg = `New Order from Website:%0A%0A`;
+msg += `Name: ${name}%0A`;
+msg += `Phone: ${phone}%0A`;
+msg += `Address: ${address}%0A`;
+msg += `Item: ${item}%0A`;
+msg += `Quantity: ${qty}%0A`;
+msg += `Payment: ${payment}%0A`;
+msg += `Notes: ${notes}%0A%0A`;
+msg += total.replace(/\n/g, "%0A");
+
+window.open(`https://wa.me/4915781158161?text=${msg}`, '_blank');
+}
+</script>
+</head>
+<body>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#photos">Photos</a></li>
+<li><a href="#bastila">Bastila</a></li>
+<li><a href="#delivery">Delivery</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#order">Order</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<header class="hero" id="home">
+<h1>Samboussa Express WF</h1>
+<p>Authentic Somali Samboussa & Traditional Moroccan Bastila</p>
+<p>Fresh • Handmade • Halal</p>
+<p>10+ Samboussa = €2 each</p>
+<p>FREE Delivery on 20+ Samboussa</p>
+<a href="#order" class="btn">Order Now</a>
+<p class="trust">⭐ 4.9 Google Reviews • 🚚 Delivered in 30min • 🥟 Fresh Daily</p>
+</header>
+
+<section>
+<div class="highlight">
+<h2>Special Offers</h2>
+<ul>
+<li>🥟 1–9 Samboussa = €2.50 each</li>
+<li>🥟 10+ Samboussa = €2.00 each</li>
+<li>🚚 Minimum delivery order = €18</li>
+<li>🚚 Delivery within 5 km = €2</li>
+<li>🎁 FREE delivery for 20 or more Samboussa</li>
+<li>💵 Cash on Delivery Available</li>
+<li>💳 Online Payments Available</li>
+</ul>
+</div>
+</section>
+
+<section id="menu">
+<h2 class="section-title">Somali Samboussa Menu</h2>
+<div class="grid">
+<div class="card"><h3>🥩 Beef Samboussa</h3><p>Traditional Somali recipe with seasoned minced beef.</p></div>
+<div class="card"><h3>🍗 Chicken Samboussa</h3><p>Fresh handmade chicken filling with herbs.</p></div>
+<div class="card"><h3>🐟 Tuna Samboussa</h3><p>Flavorful seafood option with spices.</p></div>
+<div class="card"><h3>🥬 Vegetable Samboussa</h3><p>Fresh vegetables and aromatic spices.</p></div>
+<div class="card"><h3>🧀 Cheese Samboussa</h3><p>Crispy outside, creamy cheese inside.</p></div>
+<div class="card"><h3>🌶 Spicy Special Samboussa</h3><p>Extra flavor and heat for spice lovers.</p></div>
+</div>
+</section>
+
+<section id="photos">
+<h2 class="section-title">Real Photos</h2>
+<div class="grid">
+<div class="card"><img src="food-1.jpg" alt="Beef Samboussa Wolfenbüttel"><h3>Beef Samboussa</h3></div>
+<div class="card"><img src="food-2.jpg" alt="Chicken Samboussa Wolfenbüttel"><h3>Chicken Samboussa</h3></div>
+<div class="card"><img src="welcome-2.jpg" alt="Moroccan Bastila Wolfenbüttel"><h3>Moroccan Bastila</h3></div>
+</div>
+</section>
+
+<section id="bastila">
+<h2 class="section-title">Traditional Moroccan Bastila</h2>
+<p style="text-align:center;margin-bottom:30px;">Prepared with authentic Moroccan recipes and premium spices imported from Morocco.</p>
+<div class="grid">
+<div class="card"><h3>🥧 Sweet Chicken Bastila</h3><p>Chicken, almonds, cinnamon and delicate spices.</p></div>
+<div class="card"><h3>🦐 Salty Seafood Bastila</h3><p>Seafood, herbs and aromatic spices.</p></div>
+</div>
+<br><br>
+<table>
+<tr><th>Size</th><th>Diameter</th><th>Price</th></tr>
+<tr><td>Slice</td><td>Individual Portion</td><td>€3</td></tr>
+<tr><td>Small</td><td>15 cm</td><td>€25</td></tr>
+<tr><td>Medium</td><td>30 cm</td><td>€45</td></tr>
+<tr><td>Large</td><td>50 cm</td><td>€70</td></tr>
+</table>
+</section>
+
+<section id="delivery">
+<h2 class="section-title">Delivery Area</h2>
+<p style="text-align:center;margin-bottom:20px;">Delivery available throughout Wolfenbüttel and nearby areas within 5 km.</p>
+<iframe src="https://maps.google.com/maps?q=Wolfenbüttel&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<section id="reviews">
+<h2 class="section-title">Customer Reviews</h2>
+<div class="review">⭐ Amazing Samboussa and excellent service.</div>
+<div class="review">⭐ Authentic taste and very fresh food.</div>
+<div class="review">⭐ Best Bastila in the area.</div>
+</section>
+
+<section id="order">
+<h2 class="section-title">Order Online via WhatsApp</h2>
+<form onsubmit="event.preventDefault(); sendWhatsApp();">
+<input id="name" type="text" placeholder="Full Name" required>
+<input id="phone" type="tel" placeholder="Phone Number" required>
+<input id="address" type="text" placeholder="Delivery Address" required>
+<select id="item">
+<option>Beef Samboussa</option>
+<option>Chicken Samboussa</option>
+<option>Tuna Samboussa</option>
+<option>Vegetable Samboussa</option>
+<option>Cheese Samboussa</option>
+<option>Spicy Special Samboussa</option>
+<option>Sweet Chicken Bastila Slice</option>
+<option>Salty Seafood Bastila Slice</option>
+<option>Sweet Chicken Bastila 15cm</option>
+<option>Sweet Chicken Bastila 30cm</option>
+<option>Sweet Chicken Bastila 50cm</option>
+<option>Seafood Bastila 15cm</option>
+<option>Seafood Bastila 30cm</option>
+<option>Seafood Bastila 50cm</option>
+</select>
+<input id="qty" type="number" placeholder="Quantity" min="1" oninput="calculateOrder()">
+<textarea id="notes" placeholder="Special Instructions"></textarea>
+<select id="payment">
+<option>Cash on Delivery</option>
+<option>Credit / Debit Card</option>
+<option>PayPal</option>
+<option>Apple Pay</option>
+<option>Google Pay</option>
+</select>
+<div id="summary">Enter quantity to calculate order total.</div>
+<button type="submit">📱 Send Order on WhatsApp</button>
+</form>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Contact Us</h2>
+<p><strong>📍 Location:</strong> Wolfenbüttel, Germany</p>
+<p><strong>📞 Business Phone:</strong> 0157 81158161</p>
+<p><strong>💬 WhatsApp:</strong> 0157 81158161</p>
+<p><strong>📧 Email:</strong> info@samboussa-wf.de</p>
+<p><strong>🕒 Opening Hours:</strong> Daily 11:00 – 22:00</p>
+<a class="whatsapp" href="https://wa.me/4915781158161?text=Hello%20I%20would%20like%20to%20place%20an%20order" target="_blank">Order on WhatsApp</a>
+</section>
+
+<footer>
+<h2>Samboussa Express WF</h2>
+<p>Authentic Somali Samboussa & Traditional Moroccan Bastila</p>
+<p>Wolfenbüttel, Germany</p>
+<p>Phone: 0157 81158161</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+</body>
+</html>
