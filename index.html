@@ -69,6 +69,29 @@ footer{background:var(--dark);color:white;text-align:center;padding:40px;margin-
 .hero h1{font-size:2rem;}
 .section-title{font-size:1.8rem;}
 }
+  /* Zoom effect on photos */
+.card img.zoom {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card img.zoom:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+/* Dark popup background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+.modal.show { display: flex; }
+.modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
 </style>
 
 <script>
@@ -175,9 +198,9 @@ window.open(`https://wa.me/4915781158161?text=${msg}`, '_blank');
 <section id="photos">
 <h2 class="section-title">Real Photos</h2>
 <div class="grid">
-<div class="card"><img src="food-1.jpg" alt="Beef Samboussa Wolfenbüttel"><h3>Beef Samboussa</h3></div>
-<div class="card"><img src="food-2.jpg" alt="Chicken Samboussa Wolfenbüttel"><h3>Chicken Samboussa</h3></div>
-<div class="card"><img src="pastel-1.jpg" alt="Moroccan Bastila Wolfenbüttel"><h3>Moroccan Bastila</h3></div>
+<div class="card"><img src="food-1.jpg" class="zoom" alt="Beef Samboussa Wolfenbüttel"><h3>Beef Samboussa</h3></div>
+<div class="card"><img src="food-2.jpg" class="zoom" alt="Chicken Samboussa Wolfenbüttel"><h3>Chicken Samboussa</h3></div>
+<div class="card"><img src="pastel-1.jpg" class ="zoom " alt="Moroccan Bastila Wolfenbüttel"><h3>Moroccan Bastila</h3></div>
 </div>
 </section>
 
@@ -264,5 +287,19 @@ window.open(`https://wa.me/4915781158161?text=${msg}`, '_blank');
 <p>Phone: 0157 81158161</p>
 <p>© 2026 All Rights Reserved</p>
 </footer>
+<div id="modal" class="modal" onclick="this.classList.remove('show')">
+  <img id="modal-img">
+</div>
+
+<script>
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+document.querySelectorAll('.zoom').forEach(img => {
+  img.onclick = () => {
+    modal.classList.add('show');
+    modalImg.src = img.src;
+  }
+});
+</script>
 </body>
 </html>
