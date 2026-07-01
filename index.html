@@ -69,7 +69,7 @@ footer{background:var(--dark);color:white;text-align:center;padding:40px;margin-
 .hero h1{font-size:2rem;}
 .section-title{font-size:1.8rem;}
 }
-  /* Zoom effect on photos */
+/* Zoom effect on photos */
 .card img.zoom {
   cursor: pointer;
   transition: 0.3s;
@@ -92,6 +92,17 @@ footer{background:var(--dark);color:white;text-align:center;padding:40px;margin-
 }
 .modal.show { display: flex; }
 .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+
+/* OODKAC SECTION CSS */
+.section-desc { color: #666; font-size: 14px; margin: -10px 0 15px 0; text-align:center; }
+.menu-item { 
+  display: flex; gap: 15px; align-items: center; 
+  margin-bottom: 20px; border-bottom: 1px dashed #ddd; padding: 15px; background:white; border-radius:12px;
+}
+.menu-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 10px; }
+.item-text h3 { margin: 0; font-size: 18px; color:var(--primary); }
+.item-text p { margin: 5px 0; color: #555; font-size: 14px; }
+.price { font-weight: bold; font-size: 16px; color: var(--secondary); }
 </style>
 
 <script>
@@ -195,12 +206,46 @@ window.open(`https://wa.me/4915781158161?text=${msg}`, '_blank');
 </div>
 </section>
 
+<!-- OODKAC SECTION START -->
+<section id="oodkac">
+<h2 class="section-title">🍯 Oodkac - Somali Sweets</h2>
+<p class="section-desc">Crispy sugar & sesame dough balls. The "ear-licking" sweet. Best with shaah tea.</p>
+  
+<div class="menu-item">
+<img src="photos/oodkac.jpg" alt="Oodkac Sweet">
+<div class="item-text">
+<h3>Oodkac Small</h3>
+<p>Approx. 15 pieces. Light, crispy, coated in powdered sugar + sesame.</p>
+<span class="price">€4.50</span>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="photos/oodkac.jpg" alt="Oodkac Sweet">
+<div class="item-text">
+<h3>Oodkac Family Box</h3>
+<p>Approx. 40 pieces. Perfect for sharing at Eid, weddings, or with tea.</p>
+<span class="price">€10.00</span>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="photos/oodkac.jpg" alt="Oodkac Sweet">
+<div class="item-text">
+<h3>Oodkac + Shaah Combo</h3>
+<p>Small Oodkac + 1 cup Somali spiced tea.</p>
+<span class="price">€6.50</span>
+</div>
+</div>
+</section>
+<!-- OODKAC SECTION END -->
+
 <section id="photos">
 <h2 class="section-title">Real Photos</h2>
 <div class="grid">
 <div class="card"><img src="food-1.jpg" class="zoom" alt="Beef Samboussa Wolfenbüttel"><h3>Beef Samboussa</h3></div>
 <div class="card"><img src="food-2.jpg" class="zoom" alt="Chicken Samboussa Wolfenbüttel"><h3>Chicken Samboussa</h3></div>
-<div class="card"><img src="pastel-1.jpg" class ="zoom " alt="Moroccan Bastila Wolfenbüttel"><h3>Moroccan Bastila</h3></div>
+<div class="card"><img src="pastel-1.jpg" class="zoom" alt="Moroccan Bastila Wolfenbüttel"><h3>Moroccan Bastila</h3></div>
 </div>
 </section>
 
